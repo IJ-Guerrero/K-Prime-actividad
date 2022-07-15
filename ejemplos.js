@@ -38,7 +38,7 @@ function countKprimes(k, start, nd) {
 
     for(let i = start; i <= nd; ++i){
         if(obtenerFactoresPrimos(i).length === k){
-             respuesta.push(i) 
+            respuesta.push(i) 
         }
         
     }
@@ -49,26 +49,38 @@ function puzzle(s){
     let sevenPrime = countKprimes(7, 0, s)
     let threePrime = []
     let onePrime = []
+    let respuesta = 0
     
-    countKprimes(3, 0, s).forEach( function(valor, indice) {
+    countKprimes(3, 0, s).forEach( function(valor) {
         if(valor < s - countKprimes(7, 0, s)[0]){
             threePrime.push(valor)
         }
     })
 
-    countKprimes(1, 0, s).forEach( function(valor, indice) {
+    countKprimes(1, 0, s).forEach( function(valor) {
         if(valor < s - countKprimes(7, 0, s)[0]){
             onePrime.push(valor)
         }
     })
     
+    sevenPrime.forEach( function (sevenValor){
+        threePrime.forEach( function(threeValor){
+            onePrime.forEach( function(oneValor){
+                if(sevenValor + threeValor + oneValor === s){
+                    respuesta++
+                }
+            })
+        })
+    })
+
+    
 
 
-    return [sevenPrime, 
-        threePrime,
-        onePrime]
+    return respuesta
 
     };
+
+
 console.log(puzzle(143))
 console.log(esPrimo(5));
 console.log(130 - countKprimes(7, 0, 143)[0]);
