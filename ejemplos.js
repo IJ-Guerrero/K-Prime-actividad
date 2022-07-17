@@ -124,9 +124,37 @@ function fibonacci(n) {
         return n;
     return fibonacci(n-1) + fibonacci(n-2);
 }
+
+function lineasS (w, h){   
+    let lineasAncho = "+---+";
+    let circuloAncho = "\n| o |";
+    let anchoN = "";
+    let anchoNMinusFirst = "";
+
+    for(i = 0; i < w - 1; ++i ){
+        lineasAncho += "---+" 
+    }
+
+    for(i = 0; i < w - 1; ++i ){
+        circuloAncho += " o |" 
+    }
+
+    for(i = 0; i < h; ++i ){
+        anchoNMinusFirst += circuloAncho + "\n" + lineasAncho 
+    }
+
+
+    f
+    
+    anchoN = lineasAncho + anchoNMinusFirst
+    
+return anchoN
+
+}
+// +---+---+---+\n| o | o | o |\n+---+---+---+| o | o | o |\n+---+---+---+'
+// +---+---+---+\n| o | o | o |\n+---+---+---+\n| o | o | o |\n+---+---+---+'
 let c = "hola"
-console.log(fibonacci(5))
-console.log(puzzle(143))
+console.log(lineasS (7, 2))
 console.log(Array.from(new Set([6,7,8,8,8])) );
 console.log(c.slice(c.length - c.length, 1));
 console.log(solution("7316717653133062491922511967442657474235534919493496983520368542506326239578318016984801869478851843858615607891129494954595017379583319528532"))
