@@ -144,17 +144,47 @@ function lineasS (w, h){
     }
 
 
-    f
     
     anchoN = lineasAncho + anchoNMinusFirst
     
 return anchoN
 
 }
-// +---+---+---+\n| o | o | o |\n+---+---+---+| o | o | o |\n+---+---+---+'
+// +---ddgit st+---+---+\n| o | o | o |\n+---+---+---+| o | o | o |\n+---+---+---+'
 // +---+---+---+\n| o | o | o |\n+---+---+---+\n| o | o | o |\n+---+---+---+'
-let c = "hola"
+let c = ["a", "b", "c", "a"]
+let d = c
+
+let indexa = c.indexOf("a")
+d.splice(indexa, 1)
+let repetido = d.includes("a")
+d.splice(indexa, 0, "a")
+
+function duplicateEncode(word){
+    let wLower = word.toLowerCase();
+    let wArray = wLower.split("");
+    let answer = "";
+    
+    wArray.forEach(function(valor, index, w){
+        w.splice(index, 1)
+
+        if(w.includes(valor)){
+            answer += ")"
+        } else {
+            answer += "("
+        }
+        
+        w.splice(index, 0, valor)
+    })
+
+return answer;
+
+}
+
 console.log(lineasS (7, 2))
 console.log(Array.from(new Set([6,7,8,8,8])) );
-console.log(c.slice(c.length - c.length, 1));
+console.log(duplicateEncode("hala"));
+console.log(["a", "b", "c"].map( function (a, i, w) {
+    return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+  }) )
 console.log(solution("7316717653133062491922511967442657474235534919493496983520368542506326239578318016984801869478851843858615607891129494954595017379583319528532"))
